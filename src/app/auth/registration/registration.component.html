@@ -1,0 +1,24 @@
+<h5 class="card-title text-center">Registration for access</h5>
+<form >
+    <mat-form-field appearance="fill" class="my-3">
+      <mat-label>Enter your email</mat-label>
+      <input matInput placeholder="pat@example.com"  required> <!-- [formControl]="email" -->
+      <mat-error >  <!-- *ngIf="email.invalid"  {{getErrorMessage()}} --></mat-error> 
+    </mat-form-field>
+    <mat-form-field appearance="fill" class="my-3">
+      <mat-label>Enter your password</mat-label>
+      <input matInput [type]="hide ? 'password' : 'text'" required>
+      <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+        <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+      </button>
+    </mat-form-field>
+    <mat-form-field appearance="fill">
+        <mat-label>Enter your name</mat-label>
+        <input matInput required>
+    </mat-form-field>
+    <mat-checkbox class="my-2" color="primary">I agree with the rules</mat-checkbox>
+    <button mat-raised-button color="primary" class="w-100 my-2">Register</button>
+    <p class="my-2 text-center">Already have an account?
+        <a mat-button color="primary" class="px-1" (click)="onLoginPage()">Log in!</a>
+    </p>
+</form>
